@@ -65,7 +65,7 @@ export const imageTransform = functions.https.onRequest((request, response) => {
   // Modern browsers that support WebP format will send an appropriate Accept header
   const acceptHeader = request.header('Accept');
   const webpAccepted =
-    !!acceptHeader && acceptHeader.indexOf('image/webp') !== 1;
+    !!acceptHeader && acceptHeader.indexOf('image/webp') !== -1;
 
   // If one of the dimensions is undefined the automatic sizing
   // preserving the aspect ratio will be applied
