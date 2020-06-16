@@ -39,7 +39,8 @@ const tokenizeUrl = (url: string) => {
   }
   const urlNoPrefix = url.slice(allowedPrefix.length);
   const optionsSlashIdx = urlNoPrefix.indexOf('/');
-  const sourceKey = urlNoPrefix.slice(optionsSlashIdx + 1);
+  let sourceKey = urlNoPrefix.slice(optionsSlashIdx + 1);
+  sourceKey = sourceKey.replace(/\//g, '%2F')
   const optionsStr = urlNoPrefix.slice(0, optionsSlashIdx);
   const sourceUrl = sourcePrefix + sourceKey + sourceSuffix;
   return [optionsStr, sourceUrl];
